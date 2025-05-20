@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -42,6 +44,9 @@
 }
 
 :root {
+  --day: linear-gradient(#8d7f53, #f39f86);
+  --night: linear-gradient(#0f0c29, #302b63, #24243e);
+  --cloudy: linear-gradient(#7c8585, #6c8a89);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -117,4 +122,22 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+* {
+  font-family: "Roboto Mono", monospace;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+div.App.cloudy {
+  background: var(--cloudy);
+}
+
+div.App.day {
+  background: var(--day);
+}
+
+div.App.night {
+  background: var(--night);
 }

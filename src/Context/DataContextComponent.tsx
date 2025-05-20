@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { DataContext, type DataContextType } from "@/Context/DataContext";
 import type { ResponseData } from "@/lib/DataInterfaces";
 import { toast } from "sonner";
@@ -10,13 +10,18 @@ interface DataContextComponentProps {
 const DataContextComponent: React.FC<DataContextComponentProps> = ({
   children,
 }) => {
-  const [Favorites, setFavorites] = useState<string[]>([]);
-
   const API_KEY = import.meta.env.VITE_X_RAPIDAPI_KEY;
+
+  const [Favorites, setFavorites] = useState<string[]>([]);
 
   const addToFavorites = (location: string) => {
     setFavorites((prevFavs) => [...prevFavs, location]);
   };
+
+  const [WeatherData, setWeatherData] = useState<ResponseData>({
+    loading: true,
+    data: null,
+  });
 
   const getWeatherData = async (location: string) => {
     const returnData: ResponseData = {
@@ -34,22 +39,28 @@ const DataContextComponent: React.FC<DataContextComponentProps> = ({
       });
       if (!response.ok) {
         toast.error("Something went wrong!");
-        return returnData;
+        return;
       }
       const res = await response.json();
-      returnData.data = res.data;
+      returnData.data = res;
     } catch (error) {
       toast.error("Something went wrong!");
       console.error(error);
     } finally {
       returnData.loading = false;
     }
-    return returnData;
+    setWeatherData(returnData);
   };
+
+  useEffect(() => {
+    getWeatherData("La Plata");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const exportData: DataContextType = {
     Favorites,
     addToFavorites,
+    WeatherData,
     getWeatherData,
   };
 

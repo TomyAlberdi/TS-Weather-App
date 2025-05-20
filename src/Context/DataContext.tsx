@@ -4,7 +4,8 @@ import { createContext } from "react";
 export interface DataContextType {
   Favorites: string[];
   addToFavorites: (location: string) => void;
-  getWeatherData: (location: string) => Promise<ResponseData>;
+  WeatherData: ResponseData | null;
+  getWeatherData: (location: string) => Promise<void>;
 }
 
 export const DataContext = createContext<DataContextType | null>(null);
