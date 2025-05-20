@@ -1,8 +1,12 @@
+import { ThemeProvider } from "@/components/theme-provider"
+import Navbar from "@/components/Navbar"
+
 function App() {
   return (
-    <div>
-      app
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Navbar />
+      test
+    </ThemeProvider>
   )
 }
 
