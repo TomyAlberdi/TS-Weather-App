@@ -141,3 +141,16 @@ div.App.day {
 div.App.night {
   background: var(--night);
 }
+
+  .big-icon {
+    width: 1em;
+    height: 1em;
+  }
+  .bigger-icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .large-icon {
+    width: 2em;
+    height: 2em;
+  }

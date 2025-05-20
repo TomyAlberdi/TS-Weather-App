@@ -2,21 +2,24 @@ import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { useDataContext } from "@/Context/useDataContext";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/components/theme-provider";
 
 function App() {
   const { WeatherData } = useDataContext();
+  const { setTheme } = useTheme();
 
   const [BackgroundClass, setBackgroundClass] = useState("cloudy");
   useEffect(() => {
     if (!WeatherData?.loading) {
       if (WeatherData?.data?.current.is_day == 1) {
-        console.log("is day")
         setBackgroundClass("day");
+        setTheme("light");
       } else {
-        console.log("is night")
         setBackgroundClass("night");
+        setTheme("dark");
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [WeatherData]);
 
   return (
