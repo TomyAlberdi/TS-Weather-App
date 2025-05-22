@@ -41,7 +41,7 @@ const SearchBar = () => {
         onChange={(e) => setCity(e.target.value)}
       />
       <Button
-        className="flex justify-center items-center"
+        className="flex justify-center items-center cursor-pointer"
         variant={"outline"}
         onClick={changeCity}
       >

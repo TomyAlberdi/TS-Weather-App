@@ -38,7 +38,8 @@ const DataContextComponent: React.FC<DataContextComponentProps> = ({
         },
       });
       if (!response.ok) {
-        toast.error("Something went wrong!");
+        const responseData = await response.json();
+        toast.error(`Something went wrong! ${responseData.error.message}`);
         return;
       }
       const res = await response.json();
