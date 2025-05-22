@@ -26,15 +26,18 @@ function App() {
   }, [WeatherData]);
 
   return (
-    <div className={`App md:min-h-screen min-h-[100svh] ${BackgroundClass}`}>
+    <div
+      className={`App flex flex-col justify-start items-center md:min-h-screen min-h-[100svh] ${BackgroundClass}`}
+    >
       <Navbar />
-      <div className="w-full md:px-3 h-[90svh] flex items-center justify-center">
-        <div className="flex flex-col w-full md:w-1/2 px-3 md:px-0 gap-3 md:max-w-[750px] relative">
+      <div className="min-h-[90svh] w-full flex flex-col md:flex-row justify-center items-center">
+        <div className="w-full md:h-[60vh] md:w-2/3 h-[90svh] md:grid grid-cols-5 grid-rows-9 flex flex-col gap-2">
           <FavoritesPanel />
           <SearchBar />
           <WeatherPanel />
         </div>
       </div>
+
       <Toaster />
     </div>
   );
