@@ -1,6 +1,8 @@
 const SearchBar = () => {
   return (
-    <div className="border border-red-500 col-start-2 col-span-full">SearchBar</div>
-  )
-}
-export default SearchBar
+    <div className="col-start-2 col-span-full bg-black/20 rounded-md p-2">
+      SearchBar
+    </div>
+  );
+};
+export default SearchBar;
