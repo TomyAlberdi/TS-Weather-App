@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "@/components/theme-provider";
 import FavoritesPanel from "@/components/FavoritesPanel";
 import SearchBar from "@/components/SearchBar";
-import WeatherPanel from "@/components/WeatherPanel";
+import WeatherPanel from "@/components/WeatherPanel/WeatherPanel";
 
 function App() {
   const { WeatherData } = useDataContext();
