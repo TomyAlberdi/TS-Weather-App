@@ -29,6 +29,7 @@ const DataContextComponent: React.FC<DataContextComponentProps> = ({
       data: null,
     };
     const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${location}`;
+    toast.loading("Loading Weather Data...");
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -51,6 +52,7 @@ const DataContextComponent: React.FC<DataContextComponentProps> = ({
       returnData.loading = false;
     }
     setWeatherData(returnData);
+    toast.dismiss();
   };
 
   useEffect(() => {
