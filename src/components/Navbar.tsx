@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="h-[10svh] w-full flex justify-between items-center backdrop-blur-sm md:bg-black/0 bg-black/20 pl-[1svh]">
       <Drawer>
         <DrawerTrigger asChild>
-          <Button className="md:hidden flex place-items-center w-[6svh] h-[6svh]" variant={"outline"}>
+          <Button className="md:hidden flex place-items-center w-[6svh] h-[6svh] text-muted-foreground" variant={"outline"}>
             <Sparkle className="large-icon" />
           </Button>
         </DrawerTrigger>
