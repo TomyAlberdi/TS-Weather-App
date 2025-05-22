@@ -2,7 +2,7 @@ import { useDataContext } from "@/Context/useDataContext";
 
 const TitlePanel = () => {
   const { WeatherData } = useDataContext();
-
+  //BUG: stop weather panel from stretching when title is too long and wraps
   return (
     <section className="col-start-1 col-span-full row-start-1 row-span-1 flex flex-col justify-center items-center font-light">
       {WeatherData?.loading ? (
@@ -10,7 +10,7 @@ const TitlePanel = () => {
       ) : (
         <>
           <span className="text-xl alternate-font">Weather in</span>
-          <span className="text-4xl alternate-font truncate">
+          <span className="text-4xl alternate-font text-center">
             {WeatherData?.data?.location.name},{" "}
             {WeatherData?.data?.location.country}
           </span>
