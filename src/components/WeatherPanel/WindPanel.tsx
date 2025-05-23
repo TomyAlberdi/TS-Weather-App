@@ -22,7 +22,7 @@ const WindPanel = () => {
       className={`${GRID_POSITION} border text-foreground flex flex-col justify-between items-center py-0 gap-0`}
     >
       <div className="w-full flex justify-center items-center h-2/3 font-medium overflow-hidden">
-        <span className="md:text-5xl text-3xl text-center">
+        <span className="md:text-5xl text-2xl text-center">
           {Unitkm
             ? `${WeatherData?.data?.current.wind_kph} km/h`
             : `${WeatherData?.data?.current.wind_mph} mph`}
