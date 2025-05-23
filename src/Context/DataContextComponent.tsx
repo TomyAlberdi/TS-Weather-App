@@ -12,10 +12,25 @@ const DataContextComponent: React.FC<DataContextComponentProps> = ({
 }) => {
   const API_KEY = import.meta.env.VITE_X_RAPIDAPI_KEY;
 
-  const [Favorites, setFavorites] = useState<string[]>([]);
+  const [Favorites, setFavorites] = useState<string[]>(() => {
+    const savedFavorites = localStorage.getItem("weatherFavorites");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
 
   const addToFavorites = (location: string) => {
-    setFavorites((prevFavs) => [...prevFavs, location]);
+    setFavorites((prevFavs) => {
+      const newFavs = [...prevFavs, location];
+      localStorage.setItem("weatherFavorites", JSON.stringify(newFavs));
+      return newFavs;
+    });
+  };
+
+  const removeFromFavorites = (location: string) => {
+    setFavorites((prevFavs) => {
+      const newFavs = prevFavs.filter((fav) => fav !== location);
+      localStorage.setItem("weatherFavorites", JSON.stringify(newFavs));
+      return newFavs;
+    });
   };
 
   const [WeatherData, setWeatherData] = useState<ResponseData>({
@@ -63,6 +78,7 @@ const DataContextComponent: React.FC<DataContextComponentProps> = ({
   const exportData: DataContextType = {
     Favorites,
     addToFavorites,
+    removeFromFavorites,
     WeatherData,
     getWeatherData,
   };
