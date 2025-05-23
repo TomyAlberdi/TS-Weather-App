@@ -57,14 +57,20 @@ const WeatherCards = ({
     <Tooltip>
       <TooltipTrigger asChild>
         <Card className={PANEL_LAYOUTS[2] + GENERAL_CLASSES + " "}>
-          <img src={WeatherData?.data?.current.condition.icon} alt="Weather condition icon" className="w-20" />
+          <img
+            src={WeatherData?.data?.current.condition.icon}
+            alt="Weather condition icon"
+            className="w-20"
+          />
           <span className="text-lg line-clamp-4">
             {WeatherData?.data?.current.condition.text}
           </span>
         </Card>
       </TooltipTrigger>
       <TooltipContent>
-        {WeatherData?.data?.current.condition.text}
+        <span className="text-xl">
+          {WeatherData?.data?.current.condition.text}
+        </span>
       </TooltipContent>
     </Tooltip>
   </>
