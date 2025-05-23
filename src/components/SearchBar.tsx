@@ -1,7 +1,7 @@
 import { useDataContext } from "@/Context/useDataContext";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Sparkle } from "lucide-react";
+import { Search, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -74,7 +74,7 @@ const SearchBar = () => {
             variant={"outline"}
             onClick={handleFavorite}
           >
-            <Sparkle className="bigger-icon" />
+            <Star className="bigger-icon" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>

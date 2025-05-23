@@ -1,18 +1,22 @@
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import { Sparkle } from "lucide-react";
+import { Star } from "lucide-react";
+import FavoritesPanel from "@/components/FavoritesPanel";
 
 const Navbar = () => {
   return (
     <nav className="h-[10svh] w-full flex justify-between items-center backdrop-blur-sm md:bg-black/0 bg-black/20 pl-[1svh]">
       <Drawer>
         <DrawerTrigger asChild>
-          <Button className="md:hidden flex place-items-center w-[6svh] h-[6svh] text-muted-foreground" variant={"outline"}>
-            <Sparkle className="large-icon" />
+          <Button
+            className="md:hidden flex place-items-center w-[6svh] h-[6svh] text-muted-foreground"
+            variant={"outline"}
+          >
+            <Star className="large-icon" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent>
-          favorites
+        <DrawerContent className="h-[62svh] ">
+          <FavoritesPanel hidden={true} />
         </DrawerContent>
       </Drawer>
       <div className="cursor-pointer ease-in duration-200 ml-auto h-full w-[10svh] flex justify-center items-center hover:bg-black/30">

@@ -32,7 +32,7 @@ function App() {
       <Navbar />
       <div className="min-h-[90svh] w-full flex flex-col md:flex-row justify-center items-center">
         <div className="w-full md:h-[60vh] md:w-3/5 h-[70svh] px-3 md:px-0 md:grid grid-cols-5 grid-rows-9 flex flex-col justify-center gap-2">
-          <FavoritesPanel />
+          <FavoritesPanel hidden={false} />
           <SearchBar />
           <WeatherPanel />
         </div>
