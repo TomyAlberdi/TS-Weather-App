@@ -10,7 +10,7 @@ const TitlePanel = () => {
       ) : (
         <>
           <span className="text-xl alternate-font">Weather in</span>
-          <span className="text-4xl alternate-font text-center">
+          <span className="text-3xl alternate-font text-center">
             {WeatherData?.data?.location.name},{" "}
             {WeatherData?.data?.location.country}
           </span>
