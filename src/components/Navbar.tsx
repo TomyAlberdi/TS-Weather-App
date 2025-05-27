@@ -4,6 +4,10 @@ import { Star } from "lucide-react";
 import FavoritesPanel from "@/components/FavoritesPanel";
 
 const Navbar = () => {
+  const navigateToPortfolio = () => {
+    window.open("https://www.tomas-alberdi.work/", "_blank");
+  };
+
   return (
     <nav className="h-[10svh] w-full flex justify-between items-center backdrop-blur-sm md:bg-black/0 bg-black/20 pl-[1svh]">
       <Drawer>
@@ -19,7 +23,10 @@ const Navbar = () => {
           <FavoritesPanel hidden={true} />
         </DrawerContent>
       </Drawer>
-      <div className="cursor-pointer ease-in duration-200 ml-auto h-full w-[10svh] flex justify-center items-center hover:bg-black/30">
+      <div
+        className="cursor-pointer ease-in duration-200 ml-auto h-full w-[10svh] flex justify-center items-center hover:bg-black/30"
+        onClick={navigateToPortfolio}
+      >
         <img src="/favicon.ico" alt="logo" className="w-[8svh] h-[8svh]" />
       </div>
     </nav>
